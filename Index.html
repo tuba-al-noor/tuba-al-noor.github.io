@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuba Al Noor</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #top-bar {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #logo img {
+            width: 100px;
+            height: auto;
+        }
+
+        #navigation {
+            display: flex;
+            align-items: center;
+        }
+
+        #navigation a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+
+        #navigation .dropdown-content a {
+            padding: 10px;
+            display: block;
+        }
+
+
+        #slideshow {
+            height: 100vh;
+            width: 100%;
+            background: url('https://www.mistershademe.com/wp-content/uploads/2020/09/Rubber-Flooring-Supplier-in-UAE.jpg') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+            transition: opacity 0.3s;
+        }
+
+        .slideshow-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #000000;
+            text-align: center;
+        }
+
+        /* Additional styles for the slideshow */
+        /* Your additional CSS here */
+
+        /* Add this CSS to style the "About Us" section */
+        #about-us-section {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .about-us-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-us-text {
+            flex: 1;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .about-us-image {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .about-us-image img {
+            max-width: 100%;
+            border-radius: 10px; /* Rounded corners for the image */
+        }
+
+        #content {
+            padding: 80px 20px 20px 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        .paragraph-container {
+            padding: 20px;
+            text-align: center;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        
+.product-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.product-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* Rest of your styles */
+}
+
+.product-card {
+    flex-basis: calc(25% - 20px); /* Adjust the width for four products in a row */
+    height: 300px; /* Set a fixed height for all product cards */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.product-details {
+    margin-top: 10px;
+}
+
+.product-description {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.learn-more {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    background: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.learn-more:hover {
+    background: #0056b3;
+}
+        .product-box {
+            width: 370px; /* 2 inches (at 80 pixels per inch) */
+            height: 370px; /* 2 inches (at 80 pixels per inch) */
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            margin: 10px;
+            position: relative;
+        }
+
+        .product-box img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 10px;
+        }
+
+
+        .product-box:hover {
+            opacity: 0.5;
+        }
+
+        .product-box:hover .product-title {
+            display: block;
+        }
+        
+        .whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.whatsapp-button a {
+    display: block;
+    background-color: #25D366; /* WhatsApp green color */
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    font-size: 24px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.whatsapp-button a:hover {
+    background-color: #128C7E; /* Darker green on hover */
+}
+        .whatsapp-button img {
+            border-radius: 50%; /* Creates a circular effect for the image */
+            width: 100%; /* Makes the image cover the circle completely */
+            height: 100%; /* Makes the image cover the circle completely */
+        }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content .header {
+  background: red;
+  padding: 16px;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  background-color: #ccc;
+}
+
+.column a {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.column a:hover {
+  background-color: #ddd;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    height: auto;
+  }
+}
+/* Styles for the product card with popup effect */
+.product-hover {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+
+/* Rest of your CSS */
+
+
+.product-box img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+
+.popup-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+
+.product-hover:hover .popup-card {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.popup-card h2, .popup-card p {
+    margin: 0;
+    padding: 10px;
+}
+
+.popup-card a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.popup-card a:hover {
+    color: #0056b3;
+}
+
+
+    </style>
+</head>
+<body>
+        <div id="top-bar">
+            <a href="index.html"> <!-- Link to your home page (replace "index.html" with the actual file name or URL of your home page) -->
+                <div id="logo">
+                    <img src="https://png.pngtree.com/png-vector/20220831/ourmid/pngtree-banyan-tree-logo-design-vector-png-image_6131481.png" alt="Your Logo">
+                </div>
+            </a>
+        <div id="navigation">
+            <a href="javascript:void(0)" onclick="scrollToSection('home-section')">Home</a>
+            <a href="javascript:void(0)" onclick="scrollToSection('about-us-section')">About Us</a>
+<div class="navbar">
+  <div class="dropdown">
+  
+    <button class="dropbtn">Products
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <div class="header">
+        <h2>Our Products</h2>
+      </div>   
+      <div class="row">
+        <div class="column">
+    <h2>Rubber Products</h2>
+    <!-- Product Links -->
+    <a href="product1.html">EPDM Rubber</a>
+    <a href="product2.html">Natural Gum Rubber</a>
+    <a href="product3.html">Neoprene Rubber</a>
+    <a href="product4.html">Nitrile Rubber</a>
+    <a href="product5.html">Recycled Rubber</a>
+    <a href="product6.html">Silicone Rubber</a>
+    <a href="product7.html">Synthetic Rubber</a>
+    <a href="product8.html">Coin Rubber Sheet</a>
+    <a href="product9.html">Insertion Rubber Sheet</a>
+    <a href="product10.html">Corrugated Rubber Sheet</a>
+</div>
+
+        <div class="column">
+	<br>
+    	<br>
+        	<br>
+            	<br>
+    <a href="product11.html">Silicone Rubber Sheet</a>
+    <a href="product12.html">Checkered Rubber Sheet</a>
+    <a href="product13.html">Electrical Rubber Sheet</a>
+    <a href="product14.html">Red Colour Rubber Sheet</a>
+    <a href="product15.html">Plain Rubber Sheet</a>
+    <a href="product16.html">Cushion Bubble Mat</a>
+    <a href="product17.html">Hallow Mat</a>
+    <a href="product18.html">Gym Mat</a>
+    <a href="product19.html">Solid Top Mat</a>
+    <a href="product20.html">Corner Guard</a>
+        </div>
+        <div class="column">
+	<br>
+    	<br>
+        	<br>
+            	<br>
+    <a href="product21.html">Wall Guard</a>
+    <a href="product22.html">Cable Protector</a>
+    <a href="product23.html">Wheel Stopper</a>
+    <a href="product24.html">Speed Hump</a>
+    <a href="product25.html">Poles</a>
+    <a href="product26.html">Traffic Cone</a>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+            <a href="javascript:void(0)" onclick="scrollToSection('contact-us-section')">Contact Us</a>
+        </div>
+    </div>
+
+    <div id="slideshow" class="slideshow-container">
+        <div class="slideshow-text">
+            <h1>Welcome to Tuba Al Nur Trd</h1>
+            <div class="paragraph-container">
+                <h1>Our rubber products are engineered to deliver exceptional durability and efficiency, making them the perfect choice for demanding industrial applications.</h1>
+            </div>
+        </div>
+    </div>
+    
+
+
+ <!-- Add your home page content here -->
+        </div>
+    <div id="content">
+        <div id="home-section">
+            <h2>Home</h2>
+            <!-- Add your home page content here -->
+            <div id="home-section" style="background-color: #f8f8f8; padding: 60px 0; text-align: center;">
+    <h2 style="font-size: 36px; color: #333;">Welcome to Tuba Al Nur Trd</h2>
+    <p style="font-size: 18px; color: #666; margin-bottom: 30px;">Your trusted source for high-quality rubber products</p>
+    
+    <div class="home-content" style="max-width: 800px; margin: 0 auto;">
+        <p style="font-size: 20px; color: #333; margin-bottom: 20px;">We specialize in delivering top-notch rubber solutions for various industrial applications. Our commitment to quality, durability, and innovation sets us apart in the industry.</p>
+        
+        <p style="font-size: 18px; color: #444; margin-bottom: 30px;">Explore our wide range of rubber products, including EPDM rubber, silicone rubber, and more. Whether you need weather-resistant materials for outdoor projects or insulation solutions for extreme temperatures, we have you covered.</p>
+        
+<a class="learn-more" href="javascript:void(0)" onclick="scrollToSection('products-section')">Explore Our Products</a>
+
+    </div>
+</div>
+
+        <div id="about-us-section">
+            <h2>About Us</h2>
+            <div class="about-us-content">
+                <div class="about-us-text">
+                    <h1>Your Sector...</h1>
+                    <h1>Our Proficiency</h1>
+                    <p>The rubber sector is undergoing a remarkable transformation, marked by substantial progress in rubber technology. This evolution extends from improving tire performance to crafting specialized rubber formulations for a wide range of applications, showcasing the industry's unwavering commitment to innovation.</p>
+                </div>
+                <div class="about-us-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCYPtSs6QSO3qApdBZqTU9-4ceCg0ByljbHw&usqp=CAU" alt="About Us Image">
+                </div>
+            </div>
+        </div>
+
+</div>
+
+        <div id="products-section">
+            <h2>Products</h2>
+<!-- Product Box 1: EPDM Rubber -->
+        <div class="product-box" id="product1">
+            <img src="https://www.rubbercal.com/epdm_cat2.jpg" alt="EPDM Rubber">
+            <div class="popup-card">
+                <h3>EPDM Rubber</h3>
+                <h4>Size mm : </h4>
+                <p>1, 1.5, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 25</p>
+                <h4>Length : </h4>
+                <p>(1.2mtr X 10mtr) (1.5mtr X 10mtr) (1mtr X 10mtr) & 18kg Roll</p>
+            </div>
+        </div>
+
+        <!-- Product Box 2: Natural Gum Rubber -->
+        <div class="product-box" id="product2">
+            <img src="https://www.rubbercal.com/natural_gum_cat2.jpg" alt="Natural Gum Rubber">
+            <div class="popup-card">
+                <h3>Natural Gum Rubber</h3>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 3: Neoprene Rubber -->
+        <div class="product-box" id="product3">
+            <img src="https://www.rubbercal.com/neoprene_cat2.jpg" alt="Neoprene Rubber">
+            <div class="popup-card">
+                <h3>Neoprene Rubber</h3>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 4: Nitrile Rubber -->
+        <div class="product-box" id="product4">
+            <img src="https://www.rubbercal.com/nitrile_cat2.jpg" alt="Nitrile Rubber">
+            <div class="popup-card">
+                <h3>Nitrile Rubber</h3>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 5: Recycled Rubber -->
+        <div class="product-box" id="product5">
+            <img src="https://www.rubbercal.com/recycle_cat2.jpg" alt="Recycled Rubber">
+            <div class="popup-card">
+                <h3>Recycled Rubber</h3>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 6: Silicone Rubber -->
+        <div class="product-box" id="product6">
+            <img src="https://www.rubbercal.com/silicone_cat2.jpg" alt="Silicone Rubber">
+            <div class="popup-card">
+                <h3>Silicone Rubber</h3>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 7: Synthetic Rubber -->
+        <div class="product-box" id="product7">
+            <img src="https://www.rubbercal.com/synthetic_cat2.jpg" alt="Synthetic Rubber">
+            <div class="popup-card">
+                <h3>Synthetic Rubber</h3>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 8: Coin Rubber Sheet -->
+        <div class="product-box" id="product8">
+            <img src="https://m.media-amazon.com/images/I/71Jidl6CMFL._AC_UF1000,1000_QL80.jpg" alt="Coin Rubber Sheet">
+            <div class="popup-card">
+                <h3>Coin Rubber Sheet</h3>
+                <h4>Size mm : </h4>
+                <p>1, 1.5, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 25</p>
+                <h4>Length : </h4>
+                <p>(1.2mtr X 10mtr) (1.5mtr X 10mtr) (1mtr X 10mtr) & 18kg Roll</p>
+            </div>
+        </div>
+
+        <!-- Product Box 9: Insertion Rubber Sheet -->
+        <div class="product-box" id="product9">
+            <img src="https://therubbercompany.com/wp-content/uploads/2018/07/Neoprene-SBR-Insertion-2.jpg" alt="Insertion Rubber Sheet">
+            <div class="popup-card">
+                <h3>Insertion Rubber Sheet</h3>
+                <h4>Size mm : </h4>
+                <p>1, 1.5, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 25</p>
+                <h4>Length : </h4>
+                <p>(1.2mtr X 10mtr) (1.5mtr X 10mtr) (1mtr X 10mtr) & 18kg Roll</p>
+            </div>
+        </div>
+
+        <!-- Product Box 10: Corrugated Rubber Sheet -->
+        <div class="product-box" id="product10">
+            <img src="https://image.made-in-china.com/2f0j00QMshzCcECKpZ/Green-Gray-Corrugated-Rubber-Sheet-Roll.jpg" alt="Corrugated Rubber Sheet">
+            <div class="popup-card">
+                <h3>Corrugated Rubber Sheet</h3>
+                <h4>Size mm : </h4>
+                <p>1, 1.5, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 25</p>
+                <h4>Length : </h4>
+                <p>(1.2mtr X 10mtr) (1.5mtr X 10mtr) (1mtr X 10mtr) & 18kg Roll</p>
+            </div>
+        </div>
+
+        <!-- Product Box 11: Silicone Rubber Sheet -->
+        <div class="product-box" id="product11">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0dDSMBoWBKuoxdVnd35bG4IJdKwrOGJ_e2tl-IUjyj3EN_M-Eb_XbrdpmMzbfg1lqVI4&usqp=CAU" alt="Silicone Rubber Sheet">
+            <div class="popup-card">
+                <h2>Silicone Rubber Sheet</h2>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 12: Checkered Rubber Sheet -->
+        <div class="product-box" id="product12">
+            <img src="https://www.zenithrubberstore.com/wp-content/uploads/2018/08/checkered_1.jpg" alt="Checkered Rubber Sheet">
+            <div class="popup-card">
+                <h2>Checkered Rubber Sheet</h2>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 13: Electrical Rubber Sheet -->
+        <div class="product-box" id="product13">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2023/6/320491632/MG/WG/PJ/894654/electrical-rubber-sheet-500x500.jpg" alt="Electrical Rubber Sheet">
+            <div class="popup-card">
+                <h2>Electrical Rubber Sheet</h2>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 14: Red Colour Rubber Sheet -->
+        <div class="product-box" id="product14">
+            <img src="https://5.imimg.com/data5/WW/YI/EB/SELLER-49253117/rubber-sheet-500x500.jpg" alt="Red Colour Rubber Sheet">
+            <div class="popup-card">
+                <h2>Red Colour Rubber Sheet</h2>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 15: Plain Rubber Sheet -->
+        <div class="product-box" id="product15">
+            <img src="https://5.imimg.com/data5/OI/YB/MY-3799316/black-rubber-sheet-500x500.jpg" alt="Plain Rubber Sheet">
+            <div class="popup-card">
+                <h2>Plain Rubber Sheet</h2>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 16: Cushion Bubble Mat -->
+        <div class="product-box" id="product16">
+            <img src="https://therubbercompany.com/wp-content/uploads/2013/05/Bubble-Top-Mats-2.jpg" alt="Cushion Bubble Mat">
+            <div class="popup-card">
+                <h2>Cushion Bubble Mat</h2>
+                <h3>Size : </h3>
+                <p>(450 x 750 x 16 mm) (900 x 1200 x 16 mm) (900 x 1500 x 16 mm) (900 mm x 9.33 mtr x 16 mm)</p>
+            </div>
+        </div>
+
+        <!-- Product Box 17: Hallow Mat -->
+        <div class="product-box" id="product17">
+            <img src="https://m.media-amazon.com/images/I/41eH8AO54+L._AC_UF1000,1000_QL80.jpg" alt="Hallow Mat">
+            <div class="popup-card">
+                <h2>Hollow Mat</h2>
+                                <h3>Size : </h3>
+                <p>(1000 x 1500 x 22mm) (1200 x 800 x 22 mm) (1000 x 500 x 22 mm) (750 x 450 x 22 mm) (400 x 600 x 22 mm) (1000 x 7500 x 22 mm)(1000 x 1500 x 16 mm) (1200 x 800 x 16 mm) </p>
+            </div>
+        </div>
+
+        <!-- Product Box 18: Gym Mat -->
+        <div class="product-box" id="product18">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNesUxRr7LNHgu9ooKQ2O2-UtZwIb42l9bPQ&usqp=CAU" alt="Gym Mat">
+            <div class="popup-card">
+                <h2>Gym Mat</h2>
+                <h3>Description: </h3>
+                <p>Interlock type (1 mtr x 1 mtr x 16 mm) Amebic top and Groove bottom 
+</p>
+            </div>
+        </div>
+
+        <!-- Product Box 19: Solid Top Mat -->
+        <div class="product-box" id="product19">
+            <img src="https://5.imimg.com/data5/ANDROID/Default/2022/8/NL/TL/YT/134658309/prod-20220818-1430217950435631801724473-jpg-500x500.jpg">
+            <div class="popup-card">
+                <h2>Solid Top Mat</h2>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 20: Corner Guard -->
+        <div class="product-box" id="product20">
+            <img src="https://birigroup.ae/cdn/shop/files/img_1_c4a749d6-829c-4b3f-8f49-bac6fb44df29.jpg?v=1685950322" alt="Corner Guard">
+            <div class="popup-card">
+                <h2>Corner Guard</h2>
+                <h3>Size: </h3>
+                <p>100x100x1000mm Plain</p>
+                <p>100x100x1000mm Yellow strip</p>
+                <p>75x75x1000mm plain</p> 
+                <p>75x75x1000mm yellow strip</p> 
+                <p>65x65x1000mm plain</p>
+                <p>65x65x1000mm Yellow strip</p>
+            </div>
+        </div>
+
+        <!-- Product Box 21: Wall Guard -->
+        <div class="product-box" id="product21">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7yH8rFBRnhb-DB5VnsI0pcIWukVLaTcsRsQ&usqp=CAU" alt="Wall Guard">
+            <div class="popup-card">
+                <h2>Wall Guard</h2>
+                <h3>Size: </h3>               
+                <p>Thickness 25mm</p>
+                <p>Width 200mm</p>
+                <p>Length 3 meters </p>
+                <h3>Single Yellow Strip 3M</h3>
+                <h3>Double Yellow Strip 3M</h3>
+            </div>
+        </div>
+
+        <!-- Product Box 22: Cable Protector -->
+        <div class="product-box" id="product22">
+            <img src="https://en.vidaxl.ae/dw/image/v2/BFNS_PRD/on/demandware.static/-/Sites-vidaxl-catalog-master-sku/default/dw388fe53e/hi-res/111/976/5895/142835/image_3_142835.jpg?sw=400" alt="Cable Protector">
+            <div class="popup-card">
+                <h3>Cable Protector</h3>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 23: Wheel Stopper -->
+        <div class="product-box" id="product23">
+            <img src="https://rubberform.com/wp-content/uploads/NextGen-WheelStop-thumbnail-e1596218467364.png" alt="Wheel Stopper">
+            <div class="popup-card">
+                <h3>Wheel Stopper</h3>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 24: Speed Hump -->
+        <div class="product-box" id="product24">
+            <img src="https://media.trafficsafetystore.com/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_400,q_auto,w_400/c_pad,h_400,w_400/v1//i/sber6es-6646-133058195849524904-860x1120?pgw=1" alt="Speed Hump">
+            <div class="popup-card">
+                <h3>Speed Hump</h3>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 25: Poles -->
+        <div class="product-box" id="product25">
+            <img src="https://m.media-amazon.com/images/I/51PieaAGE5L._AC_UF1000,1000_QL80.jpg" alt="Poles">
+            <div class="popup-card">
+                <h3>Poles</h3>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+
+        <!-- Product Box 26: Traffic Cone -->
+        <div class="product-box" id="product26">
+            <img src="https://cdn.shopify.com/s/files/1/0720/1728/1344/products/img7-_1.jpg?v=1679384819&width=533" alt="Traffic Cone">
+            <div class="popup-card">
+                <h3>Traffic Cone</h3>
+                <p>Product details and information go here.</p>
+            </div>
+        </div>
+       </div>
+
+<div id="contact-us-section">
+    <h2>Contact Us</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div style="background-color: #007bff; color: #fff; padding: 60px 0;">
+        <h2 style="font-size: 36px; text-align: center;">Contact Us</h2>
+    
+        <div class="contact-details" style="text-align: center; margin-top: 30px;">
+            <h3 style="font-size: 24px; color: #333;">Contact Information</h3>
+            <p style="font-size: 18px; color: #333;">Address: 304, Nakheel Street, Baniyas Road, Deira, Dubai - U.A.E</p>
+            <p style="font-size: 18px; color: #333;">E-mail: salestaninq@gmail.com</p>
+            <p style="font-size: 18px; color: #333;">Contact Us : 056 753 0852, 054 575 3021</p>
+        </div>
+    </div>
+</div>
+
+    <div class="whatsapp-button">
+        <a href="https://api.whatsapp.com/send?phone=YOUR_PHONE_NUMBER&text=Hello%20from%20your%20website!" target="_blank" rel="noopener">			
+            <img src="https://w7.pngwing.com/pngs/672/164/png-transparent-whatsapp-icon-whatsapp-logo-computer-icons-zubees-halal-foods-whatsapp-text-circle-unified-payments-interface.png" alt="WhatsApp" width="60" height="60" />
+        </a>
+    </div>
+
+
+
+
+
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const topBarHeight = document.getElementById('top-bar').clientHeight;
+                const sectionTop = section.offsetTop - topBarHeight;
+                window.scrollTo({
+                    top: sectionTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Parallax effect for the slideshow
+        const slideshowContainer = document.querySelector('.slideshow-container');
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const opacity = 1 - (scrollPosition / 500);
+            slideshowContainer.style.opacity = opacity;
+        });
+
+        function openDropdown() {
+            const dropdownContent = document.querySelector('.dropdown-content');
+            dropdownContent.classList.toggle('show');
+        }
+
+        // Add click event listeners to product links
+        const productLinks = document.querySelectorAll('.product-link');
+        productLinks.forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default link behavior
+                openDropdown(); // Open the dropdown
+            });
+        });
+
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownContent = document.querySelector('.dropdown-content');
+
+        dropdown.addEventListener('click', function(event) {
+            event.stopPropagation();
+            dropdownContent.classList.toggle('show');
+        });
+
+        document.addEventListener('click', function() {
+            dropdownContent.classList.remove('show');
+        });
+        function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        if (sectionId === 'contact-us-section') {
+            // For the "Contact Us" section, scroll to it without any offset
+            window.scrollTo({
+                top: section.offsetTop,
+                behavior: 'smooth'
+            });
+        } else {
+            // For other sections, consider the top bar's height
+            const topBarHeight = document.getElementById('top-bar').clientHeight;
+            const sectionTop = section.offsetTop - topBarHeight;
+            window.scrollTo({
+                top: sectionTop,
+                behavior: 'smooth'
+            });
+        }
+    }
+}
+
+    // JavaScript to add the hover effect to all product cards
+    const productBoxes = document.querySelectorAll('.product-box');
+
+    productBoxes.forEach((box) => {
+        box.addEventListener('mouseenter', function () {
+            box.querySelector('.popup-card').style.opacity = '1';
+            box.querySelector('.popup-card').style.transform = 'scale(1)';
+        });
+
+        box.addEventListener('mouseleave', function () {
+            box.querySelector('.popup-card').style.opacity = '0';
+            box.querySelector('.popup-card').style.transform = 'scale(0.8)';
+        });
+    });
+
+    </script>
+</body>
+</html>
