@@ -9,13 +9,12 @@
     
     <style>
         :root {
-            --primary: #9cd115;       /* Brand Green */
+            --primary: #9cd115;
             --primary-dark: #7ba311;
-            --text-main: #1f2937;     /* Dark Grey for readability */
-            --text-muted: #6b7280;    /* Softer grey */
-            --bg-body: #f3f4f6;       /* Light grey background */
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg-body: #f3f4f6;
             --glass-white: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.6);
             --shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
         }
 
@@ -28,7 +27,7 @@
             overflow-x: hidden;
         }
 
-        /* --- FLOATING TRANSLUCENT HEADER --- */
+        /* --- HEADER --- */
         header {
             position: fixed;
             top: 20px;
@@ -49,7 +48,6 @@
         }
 
         header img { height: 45px; border-radius: 50%; }
-
         nav { display: flex; gap: 30px; }
         nav a {
             text-decoration: none;
@@ -57,12 +55,11 @@
             font-weight: 700;
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
             transition: 0.3s;
         }
         nav a:hover { color: var(--primary); }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         .hero {
             position: relative;
             height: 90vh;
@@ -72,20 +69,13 @@
             border-bottom-right-radius: 40px;
         }
 
-        .hero video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .hero video { width: 100%; height: 100%; object-fit: cover; }
 
         /* --- SECTIONS --- */
-        .section { padding: 100px 8%; }
-
+        .section { padding: 80px 8%; }
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-size: 2.5rem; margin-bottom: 15px; }
-        .section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; }
 
-        /* --- ABOUT STATS (Light Glass) --- */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -97,55 +87,57 @@
             text-align: center;
         }
         .stat-item h3 { font-size: 3rem; color: var(--primary); margin-bottom: 5px; }
-        .stat-item p { font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- PRODUCTS GRID --- */
+        /* --- PRODUCTS GRID (MOBILE FIX) --- */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .product-card {
             position: relative;
-            height: 400px;
+            height: 350px;
             border-radius: 20px;
             overflow: hidden;
-            background: white;
-            box-shadow: var(--shadow);
+            background: #ddd;
             cursor: pointer;
+            /* Important for mobile tap */
+            -webkit-tap-highlight-color: transparent;
         }
 
         .product-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Hover: Blur Image + Reveal Text */
-        .product-card:hover img {
-            filter: blur(8px) brightness(0.7);
-            transform: scale(1.1);
+            transition: 0.5s ease;
         }
 
         .product-info {
             position: absolute;
             inset: 0;
+            background: rgba(0, 0, 0, 0.6);
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            transition: 0.4s;
             padding: 20px;
             text-align: center;
+            opacity: 0;
+            transition: 0.4s ease;
+            backdrop-filter: blur(4px);
         }
 
-        .product-card:hover .product-info { opacity: 1; }
-        .product-info h3 { color: white; font-size: 1.8rem; text-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .product-info h3 { color: white; font-size: 1.5rem; }
 
-        /* --- CONTACT SPLIT SECTION --- */
+        /* Desktop Hover */
+        .product-card:hover img { transform: scale(1.1); filter: brightness(0.7); }
+        .product-card:hover .product-info { opacity: 1; }
+
+        /* MOBILE FIX: Show text on Tap */
+        .product-card.active .product-info { opacity: 1; }
+        .product-card.active img { transform: scale(1.1); filter: brightness(0.5); }
+
+        /* --- CONTACT --- */
         .contact-box {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -155,157 +147,42 @@
             box-shadow: var(--shadow);
         }
 
-        .contact-left {
-            padding: 60px;
-            background: var(--text-main);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+        .contact-left { padding: 60px; background: var(--text-main); color: white; }
+        .contact-right { padding: 60px; }
 
-        .contact-left h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        .contact-left p { font-size: 1.1rem; opacity: 0.9; line-height: 1.6; }
-
-        .contact-right {
-            padding: 60px;
-            background: white;
-        }
-
-        /* Form Styles */
         input, textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            background: #f9f9f9;
-            border: 1px solid #e5e5e5;
-            border-radius: 10px;
-            font-family: inherit;
-            outline: none;
-            transition: 0.3s;
+            width: 100%; padding: 15px; margin-bottom: 20px;
+            background: #f9f9f9; border: 1px solid #e5e5e5; border-radius: 10px;
         }
-        input:focus, textarea:focus { border-color: var(--primary); background: white; }
 
         button {
-            width: 100%;
-            padding: 16px;
-            background: var(--text-main);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        button:hover { background: var(--primary); }
-
-        #form-status { margin-top: 15px; font-weight: bold; display: none; }
-        .success { color: green; } .error { color: red; }
-
-        /* --- UPDATED FOOTER --- */
-        footer {
-            background: #e6f5be;
-            color: #5a5a5a;
-            padding: 80px 8% 40px;
-            font-size: 0.95rem;
+            width: 100%; padding: 16px; background: var(--text-main);
+            color: white; border: none; border-radius: 10px; font-weight: 700; cursor: pointer;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1.5fr; /* 3 Columns Layout */
-            gap: 50px;
-            margin-bottom: 40px;
-        }
-
-        /* Bigger Logo */
-        .footer-logo-img {
-            height: 120px; /* Increased Size */
-            width: auto;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-
-        .footer-col h4 {
-            color: #333;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 800;
-        }
-
+        /* --- FOOTER --- */
+        footer { background: #e6f5be; color: #5a5a5a; padding: 80px 8% 40px; }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 50px; }
+        .footer-logo-img { height: 100px; border-radius: 50%; margin-bottom: 20px; }
         .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; transition: 0.3s; }
-        .footer-col ul li:hover { color: var(--primary-dark); cursor: pointer; }
+        .footer-col ul li { margin-bottom: 10px; }
 
-        /* Icon Buttons */
-        .icon-row {
-        display: flex;
-        gap: 15px;
-        margin-top: 20px;
-        margin-bottom: 25px;
-    }
-    
-    .icon-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 45px;
-        height: 45px;
-        background: white;
-        border-radius: 50%;
-        transition: 0.3s;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        text-decoration: none; /* Removes underline from links */
-    }
-
-    .icon-btn i {
-        font-size: 20px;
-        color: #333;
-    }
-
-    .icon-btn:hover {
-        transform: translateY(-3px);
-        background: #9cd115; /* Your Brand Green */
-    }
-    
-    .icon-btn:hover i {
-        color: white;
-    }
-
-    /* Specific color for WhatsApp on hover if you want the classic green */
-    .icon-btn.whatsapp-hover:hover {
-        background: #25D366;
-    }
-        /* Big Map Section */
-        .map-wrapper {
-            width: 100%;
-            height: 250px;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 2px solid white;
+        .icon-row { display: flex; gap: 15px; margin: 20px 0; }
+        .icon-btn {
+            width: 45px; height: 45px; background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; color: #333; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
+        .icon-btn:hover { background: var(--primary); color: white; }
+        .whatsapp-hover:hover { background: #25D366 !important; }
 
-        .map-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            filter: grayscale(0%);
-        }
+        .embed-map-responsive { position: relative; width: 100%; padding-bottom: 60%; margin-top: 15px; }
+        .embed-map-frame { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px; }
 
-        .footer-bottom {
-            border-top: 1px solid rgba(0,0,0,0.1);
-            padding-top: 20px;
-            text-align: center;
-            opacity: 0.6;
-        }
-
-        /* Mobile */
         @media (max-width: 900px) {
             .contact-box, .footer-grid, .stats-container { grid-template-columns: 1fr; }
-            header { width: 95%; padding: 10px 20px; }
+            header { padding: 10px 20px; }
             nav { display: none; }
-            .footer-logo-img { height: 90px; }
         }
     </style>
 </head>
@@ -332,110 +209,36 @@
             <p>Supplying the UAE with high-durability industrial rubber sheets and safety products for over half a decade.</p>
         </div>
         <div class="stats-container">
-            <div class="stat-item">
-                <h3>5+</h3>
-                <p>Years Experience</p>
-            </div>
-            <div class="stat-item">
-                <h3>30+</h3>
-                <p>Products Stocked</p>
-            </div>
-            <div class="stat-item">
-                <h3>100%</h3>
-                <p>Delivery Rate</p>
-            </div>
+            <div class="stat-item"><h3>5+</h3><p>Years Experience</p></div>
+            <div class="stat-item"><h3>30+</h3><p>Products Stocked</p></div>
+            <div class="stat-item"><h3>100%</h3><p>Delivery Rate</p></div>
         </div>
     </section>
 
     <section id="products" class="section" style="background: white;">
-        <div class="section-header">
-            <h2>Our Products</h2>
-        </div>
+        <div class="section-header"><h2>Our Products</h2></div>
         <div class="product-grid">
-            <div class="product-card">
-                <img src="f1a9f90c.jpg">
-                <div class="product-info"><h3>Neoprene Rubbersheet</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="c88929cf.jpg" alt="Checkered">
-                <div class="product-info"><h3>Silicone Rubbersheet</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="fb05a03c.jpg" alt="EPDM">
-                <div class="product-info"><h3>Checkered Rubber Mat/h3></div>
-            </div>
-            <div class="product-card">
-                <img src="07464d05.jpg" alt="Neoprene">
-                <div class="product-info"><h3>PTFE Sheets</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="ba5dd0ab.jpg" alt="Checkered">
-                <div class="product-info"><h3>Cotton Insertion Rubbersheet</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="97548e26.jpg" alt="EPDM">
-                <div class="product-info"><h3>Coin Rubbersheet</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="42fd5169.jpg" alt="Neoprene">
-                <div class="product-info"><h3>Corrugated Electrical Rubbersheet</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="d3c5fe09.jpg" alt="Checkered">
-                <div class="product-info"><h3>Ramp Mat</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="4387bf63.jpg" alt="EPDM">
-                <div class="product-info"><h3>Hollow Mat</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="0df0ed20.jpg" alt="Neoprene">
-                <div class="product-info"><h3>Black Gasket</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="fbeb62ce.jpg" alt="Checkered">
-                <div class="product-info"><h3>Green Gasket</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="79bf6e18.jpg" alt="EPDM">
-                <div class="product-info"><h3>Rubber Bush</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="6a3f3c45.jpg" alt="Neoprene">
-                <div class="product-info"><h3>Rubber Cord</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="ae4757bb.jpg" alt="Checkered">
-                <div class="product-info"><h3>Rubber Parking Guard</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="76518e81.jpg" alt="EPDM">
-                <div class="product-info"><h3>Wheel Stopper</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="788c35d1.jpg" alt="Neoprene">
-                <div class="product-info"><h3>Wall Guard</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="788c35d1.jpg" alt="Checkered">
-                <div class="product-info"><h3>Safty Cone</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="6739bdc1.jpg" alt="EPDM">
-                <div class="product-info"><h3>Safety Pole</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="baf45916.jpg" alt="Neoprene">
-                <div class="product-info"><h3>Safety Mesh</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="4c85584b.jpg" alt="Checkered">
-                <div class="product-info"><h3>Cut Gasket</h3></div>
-            </div>
-            <div class="product-card">
-                <img src="c8f7a1d2.jpg" alt="EPDM">
-                <div class="product-info"><h3>Cranflex Paper Gasket</h3></div>
-            </div>
+            <div class="product-card"><img src="f1a9f90c.jpg"><div class="product-info"><h3>Neoprene Rubbersheet</h3></div></div>
+            <div class="product-card"><img src="c88929cf.jpg"><div class="product-info"><h3>Silicone Rubbersheet</h3></div></div>
+            <div class="product-card"><img src="fb05a03c.jpg"><div class="product-info"><h3>Checkered Rubber Mat</h3></div></div>
+            <div class="product-card"><img src="07464d05.jpg"><div class="product-info"><h3>PTFE Sheets</h3></div></div>
+            <div class="product-card"><img src="ba5dd0ab.jpg"><div class="product-info"><h3>Cotton Insertion Rubbersheet</h3></div></div>
+            <div class="product-card"><img src="97548e26.jpg"><div class="product-info"><h3>Coin Rubbersheet</h3></div></div>
+            <div class="product-card"><img src="42fd5169.jpg"><div class="product-info"><h3>Corrugated Electrical Rubbersheet</h3></div></div>
+            <div class="product-card"><img src="d3c5fe09.jpg"><div class="product-info"><h3>Ramp Mat</h3></div></div>
+            <div class="product-card"><img src="4387bf63.jpg"><div class="product-info"><h3>Hollow Mat</h3></div></div>
+            <div class="product-card"><img src="0df0ed20.jpg"><div class="product-info"><h3>Black Gasket</h3></div></div>
+            <div class="product-card"><img src="fbeb62ce.jpg"><div class="product-info"><h3>Green Gasket</h3></div></div>
+            <div class="product-card"><img src="79bf6e18.jpg"><div class="product-info"><h3>Rubber Bush</h3></div></div>
+            <div class="product-card"><img src="6a3f3c45.jpg"><div class="product-info"><h3>Rubber Cord</h3></div></div>
+            <div class="product-card"><img src="ae4757bb.jpg"><div class="product-info"><h3>Rubber Parking Guard</h3></div></div>
+            <div class="product-card"><img src="76518e81.jpg"><div class="product-info"><h3>Wheel Stopper</h3></div></div>
+            <div class="product-card"><img src="788c35d1.jpg"><div class="product-info"><h3>Wall Guard</h3></div></div>
+            <div class="product-card"><img src="788c35d1.jpg"><div class="product-info"><h3>Safety Cone</h3></div></div>
+            <div class="product-card"><img src="6739bdc1.jpg"><div class="product-info"><h3>Safety Pole</h3></div></div>
+            <div class="product-card"><img src="baf45916.jpg"><div class="product-info"><h3>Safety Mesh</h3></div></div>
+            <div class="product-card"><img src="4c85584b.jpg"><div class="product-info"><h3>Cut Gasket</h3></div></div>
+            <div class="product-card"><img src="c8f7a1d2.jpg"><div class="product-info"><h3>Cranflex Paper Gasket</h3></div></div>
         </div>
     </section>
 
@@ -443,20 +246,13 @@
         <div class="contact-box">
             <div class="contact-left">
                 <h2>Get a Quote</h2>
-                <p>We provide custom dimensions for bulk orders. Contact our technical team today for the best rates in the UAE.</p>
+                <p>Contact our technical team today for the best rates in the UAE.</p>
             </div>
-            
             <div class="contact-right">
                 <form id="contact-form" action="https://formspree.io/f/xkoonpwe" method="POST">
-                    <label style="font-weight: 700; font-size: 0.9rem; margin-bottom: 5px; display:block;">Full Name</label>
-                    <input type="text" name="name" required>
-
-                    <label style="font-weight: 700; font-size: 0.9rem; margin-bottom: 5px; display:block;">Email Address</label>
-                    <input type="email" name="email" required>
-
-                    <label style="font-weight: 700; font-size: 0.9rem; margin-bottom: 5px; display:block;">Message</label>
-                    <textarea name="message" rows="4" required></textarea>
-
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
                     <button type="submit">Submit Inquiry</button>
                     <p id="form-status"></p>
                 </form>
@@ -466,92 +262,63 @@
 
     <footer>
         <div class="footer-grid">
-            
             <div class="footer-col">
-                <img src="https://tubaalnoor.carrd.co/assets/images/image01.jpg?v=2becc5fa" class="footer-logo-img" alt="Logo">
-                <p><strong>Tuba Al Noor Trading L.L.C.</strong><br>
-                Industrial Area 1, Sharjah<br>
-                United Arab Emirates</p>
+                <img src="https://tubaalnoor.carrd.co/assets/images/image01.jpg?v=2becc5fa" class="footer-logo-img">
+                <p><strong>Tuba Al Noor Trading L.L.C.</strong><br>Sharjah, UAE</p>
             </div>
-
             <div class="footer-col">
                 <h4>Products</h4>
-                <ul>
-                    <li>Neoprene Sheets</li>
-                    <li>EPDM Rubber</li>
-                    <li>Silicon Sheets</li>
-                    <li>PVC Mats</li>
-                    <li>Safety Flooring</li>
-                </ul>
+                <ul><li>Neoprene Sheets</li><li>EPDM Rubber</li><li>Silicon Sheets</li><li>Safety Flooring</li></ul>
             </div>
-
             <div class="footer-col">
                 <h4>Contact & Location</h4>
-                <ul>
-                    <li>+971 56 753 0852</li>
-                    <li>+971 52 514 5572</li>
-                    <li>info@tubaalnoor.com</li>
-                </ul>
-
-                    <div class="icon-row">
-    <a href="tel:+971567530852" class="icon-btn" title="Call Us">
-        <i class="fa fa-phone"></i>
-    </a>
-
-    <a href="mailto:salestaninq@gmail.com" class="icon-btn" title="Email Us">
-        <i class="fa fa-envelope"></i>
-    </a>
-
-    <a href="https://wa.me/971567530852" class="icon-btn whatsapp-hover" title="WhatsApp">
-        <i class="fa fa-whatsapp"></i>
-    </a>
-</div>
-           
-
-<div class="embed-map-responsive"><div class="embed-map-container"><iframe class="embed-map-frame" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&height=400&hl=en&q=tuba%20al%20noor&t=&z=14&ie=UTF8&iwloc=B&output=embed"></iframe><a href="https://sprunkiretake.net" style="font-size:2px!important;color:gray!important;position:absolute;bottom:0;left:0;z-index:1;max-height:1px;overflow:hidden">Sprunki</a></div><style>.embed-map-responsive{position:relative;text-align:right;width:100%;height:0;padding-bottom:66.66666666666666%;}.embed-map-container{overflow:hidden;background:none!important;width:100%;height:100%;position:absolute;top:0;left:0;}.embed-map-frame{width:100%!important;height:100%!important;position:absolute;top:0;left:0;}</style></div>
+                <p>+971 56 753 0852</p>
+                <div class="icon-row">
+                    <a href="tel:+971567530852" class="icon-btn"><i class="fa fa-phone"></i></a>
+                    <a href="mailto:salestaninq@gmail.com" class="icon-btn"><i class="fa fa-envelope"></i></a>
+                    <a href="https://wa.me/971567530852" class="icon-btn whatsapp-hover"><i class="fa fa-whatsapp"></i></a>
+                </div>
+                <div class="embed-map-responsive">
+                    <iframe class="embed-map-frame" src="http://googleusercontent.com/maps.google.com/3" frameborder="0"></iframe>
+                </div>
             </div>
-
         </div>
-        <div class="footer-bottom">
-            © 2026 Tuba Al Noor Trading. All Rights Reserved.
-        </div>
+        <div class="footer-bottom">© 2026 Tuba Al Noor Trading.</div>
     </footer>
 
     <script>
+        // MOBILE TAP FIX FOR PRODUCTS
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove active class from all other cards
+                document.querySelectorAll('.product-card').forEach(c => {
+                    if (c !== card) c.classList.remove('active');
+                });
+                // Toggle active class on clicked card
+                this.classList.toggle('active');
+            });
+        });
+
+        // FORM SUBMISSION
         var form = document.getElementById("contact-form");
-        async function handleSubmit(event) {
-            event.preventDefault();
+        form.onsubmit = async (e) => {
+            e.preventDefault();
             var status = document.getElementById("form-status");
-            var data = new FormData(event.target);
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: { 'Accept': 'application/json' }
+            var data = new FormData(e.target);
+            status.style.display = "block";
+            status.innerHTML = "Sending...";
+            
+            fetch(e.target.action, {
+                method: 'POST', body: data, headers: { 'Accept': 'application/json' }
             }).then(response => {
                 if (response.ok) {
-                    status.innerHTML = "Message Sent Successfully!";
-                    status.className = "success";
-                    status.style.display = "block";
+                    status.innerHTML = "Sent Successfully!";
                     form.reset();
                 } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                        } else {
-                            status.innerHTML = "Error sending message (Check Form ID).";
-                        }
-                    });
-                    status.className = "error";
-                    status.style.display = "block";
+                    status.innerHTML = "Error. Please try again.";
                 }
-            }).catch(error => {
-                status.innerHTML = "Network error.";
-                status.className = "error";
-                status.style.display = "block";
             });
-        }
-        form.addEventListener("submit", handleSubmit);
+        };
     </script>
-
 </body>
 </html>
